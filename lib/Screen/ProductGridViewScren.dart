@@ -20,7 +20,7 @@ class _ProductCrateScreenState extends State<ProductCrateScreen> {
           ScreenBackgroun(context),
         Container(
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(24),
+            padding: EdgeInsets.all(25),
       child: Column(
         children: [
           TextFormField(
