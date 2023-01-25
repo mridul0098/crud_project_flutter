@@ -10,6 +10,41 @@ class ProductCrateScreen extends StatefulWidget {
 }
 
 class _ProductCrateScreenState extends State<ProductCrateScreen> {
+
+Map<String, String> FormValue={"Img": "", "ProductCode": "", "ProductName": "", "Qty": "", "TotalPrice": "", "UnitPrice": ""};
+
+InputOnChange(MapKey, Textvalue)
+{
+  FormValue.update(MapKey, (Value) => Textvalue);
+}
+
+FormOnSubmit(){
+  if(FormValue['img']!.length==0){
+Errortoast("img code required");
+  }
+  if(FormValue['ProductCode']!.length==0){
+    Errortoast("ProductCode code required");
+
+  }
+  if(FormValue['ProductName']!.length==0){
+    Errortoast("ProductName code required");
+
+  }
+  if(FormValue['TotalPrice']!.length==0){
+    Errortoast("TotalPrice code required");
+
+  }
+  if(FormValue['TotalPrice']!.length==0){
+    Errortoast("TotalPrice code required");
+
+  }
+  if(FormValue['UnitPrice']!.length==0){
+    Errortoast("UnitPrice code required");
+
+  }
+
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,38 +59,53 @@ class _ProductCrateScreenState extends State<ProductCrateScreen> {
       child: Column(
         children: [
           TextFormField(
-            onChanged: (value){},
-            decoration: AppInputDecoration("product name"),
+            onChanged: (Textvalue){
+              InputOnChange("Img",Textvalue);
+            },
+            decoration: AppInputDecoration("Img"),
           ),
+
           SizedBox(height:20,),
           TextFormField(
-            onChanged: (value){},
+            onChanged: (Textvalue){
+              InputOnChange("ProductCode",Textvalue);
+
+            },
             decoration: AppInputDecoration("prduct code"),
           ),
           SizedBox(height:20,),
 
           TextFormField(
-            onChanged: (value){},
-            decoration: AppInputDecoration("product imaage"),
+            onChanged: (Textvalue){
+              InputOnChange("ProductName",Textvalue);
+
+            },
+            decoration: AppInputDecoration("ProductName"),
           ),
           SizedBox(height:20,),
 
           TextFormField(
-            onChanged: (value){},
-            decoration: AppInputDecoration("Unit price"),
+            onChanged: (Textvalue){
+              InputOnChange("TotalPrice",Textvalue);
+
+            },
+            decoration: AppInputDecoration("TotalPrice"),
           ),
           SizedBox(height:20,),
 
           TextFormField(
-            onChanged: (value){},
-            decoration: AppInputDecoration("total price"),
+            onChanged: (Textvalue){
+              InputOnChange("UnitPrice",Textvalue);
+
+            },
+            decoration: AppInputDecoration("UnitPrice"),
           ),
 
           SizedBox(height:20,),
 
           Appdropdownstyle(
               DropdownButton(
-                value: "",
+                value: FormValue['Qty'],
                   items:[
                     DropdownMenuItem(child: Text("select Qt"),value: "",),
                     DropdownMenuItem(child: Text("one"),value: "one",),
@@ -63,7 +113,10 @@ class _ProductCrateScreenState extends State<ProductCrateScreen> {
                     DropdownMenuItem(child: Text("three"),value: "three",),
                     DropdownMenuItem(child: Text("four"),value: "four",),
                   ],
-                  onChanged:(value){},
+                  onChanged:(Textvalue){
+                    InputOnChange("Qty",Textvalue);
+
+                  },
               isExpanded: true,
                 underline: Container(),
               )
@@ -72,7 +125,10 @@ class _ProductCrateScreenState extends State<ProductCrateScreen> {
 
           ElevatedButton(
             style: AppButtonStyle(),
-              onPressed:(){},
+
+              onPressed:(){
+              FormOnSubmit();
+              },
               child:SuccessButtoChild("submit") ,
           )
 

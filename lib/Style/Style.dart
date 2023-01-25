@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_svg/svg.dart';
 const colorRed= Color.fromRGBO(231,28,36,1);
 const colorgreen= Color.fromRGBO(33,191,115,1);
@@ -30,7 +31,7 @@ SvgPicture ScreenBackgroun(context){
 InputDecoration AppInputDecoration(lavel){
   return InputDecoration(
     border: OutlineInputBorder(),
-  //  labelText: lavel,
+  labelText: lavel,
     hintText: lavel,
   );
 }
@@ -57,5 +58,31 @@ Ink SuccessButtoChild(ButtonText){
         fontWeight: FontWeight.w400,
       ),),
     ),
+  );
+}
+
+
+
+void Errortoast(msg){
+  Fluttertoast.showToast(
+      msg: msg,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+      fontSize: 16.0
+  );
+}
+
+void SuccressTost(msg){
+  Fluttertoast.showToast(
+      msg: msg,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIosWeb: 1,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+      fontSize: 16.0
   );
 }
