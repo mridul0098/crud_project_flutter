@@ -12,36 +12,39 @@ class ProductCrateScreen extends StatefulWidget {
 
 class _ProductCrateScreenState extends State<ProductCrateScreen> {
 
-Map<String, String> FormValue={"Img": "", "ProductCode": "", "ProductName": "", "Qty": "", "TotalPrice": "", "UnitPrice": ""};
+Map<String,String> FormValue={"Img": "", "ProductCode": "", "ProductName": "", "Qty": "", "TotalPrice": "", "UnitPrice": ""};
 bool loding=false;
 
 
 InputOnChange(MapKey, Textvalue)
 {
-  FormValue.update(MapKey, (Value) => Textvalue);
+  setState(() {
+    FormValue.update(MapKey, (Value) => Textvalue);
+
+  });
 }
 
 FormOnSubmit()async{
   if(FormValue['img']!.length==0){
-Errortoast("img code required");
+Errortoast('img code required');
   }
-  if(FormValue['ProductCode']!.length==0){
+  else if(FormValue['ProductCode']!.length==0){
     Errortoast("ProductCode code required");
 
   }
-  if(FormValue['ProductName']!.length==0){
+  else if(FormValue['ProductName']!.length==0){
     Errortoast("ProductName code required");
 
   }
-  if(FormValue['TotalPrice']!.length==0){
+  else if(FormValue['TotalPrice']!.length==0){
     Errortoast("TotalPrice code required");
 
   }
-  if(FormValue['TotalPrice']!.length==0){
+  else if(FormValue['TotalPrice']!.length==0){
     Errortoast("TotalPrice code required");
 
   }
-  if(FormValue['UnitPrice']!.length==0){
+  else if(FormValue['UnitPrice']!.length==0){
     Errortoast("UnitPrice code required");
 
   }
@@ -134,13 +137,15 @@ setState(() {
                 ),
                 SizedBox(height:20,),
 
-                ElevatedButton(
-                  style: AppButtonStyle(),
+                Container(
+                  child: ElevatedButton(
+                    style: AppButtonStyle(),
 
-                  onPressed:(){
-                    FormOnSubmit();
-                  },
-                  child:SuccessButtoChild("submit") ,
+                    onPressed:(){
+                      FormOnSubmit();
+                    },
+                    child:SuccessButtoChild("submit") ,
+                  ),
                 )
 
 
